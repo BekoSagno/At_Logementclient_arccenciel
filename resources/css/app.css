@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Personnalisation de la Sidebar Filament - FIXE et DÉTACHÉE */
+.fi-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    z-index: 30 !important;
+    width: 16rem !important;
+    min-width: 16rem !important;
+    border-right: 1px solid rgba(229, 231, 235, 0.6) !important;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.03) !important;
+    background: white !important;
+}
+
+/* Amélioration du scroll de la sidebar - Scroll interne uniquement */
+.fi-sidebar-nav {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: calc(100vh - 4rem) !important;
+    padding: 0.5rem 0.25rem 2rem 0.25rem !important;
+    position: relative !important;
+    scroll-behavior: smooth !important;
+    gap: 0.25rem !important;
+}
+
+/* Style de la navigation */
+.fi-sidebar-nav-item {
+    margin-bottom: 0.125rem !important;
+}
+
+/* Amélioration de l'apparence des groupes de navigation */
+.fi-sidebar-group {
+    margin-bottom: 1rem !important;
+}
+
+/* Scrollbar personnalisée pour la sidebar */
+.fi-sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.3);
+    border-radius: 3px;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.5);
+}
+
+/* Amélioration de l'espacement des éléments */
+.fi-sidebar-nav-item-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-sidebar-nav-item-link:hover {
+    background-color: rgba(251, 191, 36, 0.1) !important;
+}
+
+/* Style pour les éléments actifs */
+.fi-sidebar-nav-item-link[aria-current="page"] {
+    background-color: rgba(251, 191, 36, 0.15) !important;
+    font-weight: 600 !important;
+}
+
+/* Amélioration de l'organisation des modules */
+.fi-sidebar-section {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Style pour le header de la sidebar */
+.fi-sidebar-header {
+    padding: 1rem 0.75rem !important;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Amélioration de l'espacement général */
+.fi-sidebar-content {
+    padding: 0.75rem 0.5rem !important;
+}
+
+/* Contenu principal - DÉTACHÉ de la sidebar, scroll indépendant */
+.fi-main {
+    margin-left: 16rem !important;
+    padding-left: 0.75rem !important;
+    position: relative !important;
+    width: calc(100% - 16rem) !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 100vh !important;
+}
+
+/* Ajustement pour sidebar réduite */
+.fi-sidebar-collapsed ~ .fi-main {
+    margin-left: 4rem !important;
+    width: calc(100% - 4rem) !important;
+}
+
+.fi-main-content {
+    padding: 1rem 0.5rem !important;
+}
+
+/* CACHER les boutons agrandir/réduire de Filament - Plus spécifique */
+.fi-topbar button[aria-label*="barre latérale"],
+.fi-topbar button[aria-label*="sidebar"],
+.fi-topbar button[aria-label*="Agrandir"],
+.fi-topbar button[aria-label*="Réduire"],
+nav button[aria-label*="barre latérale"],
+nav button[aria-label*="sidebar"],
+nav button[aria-label*="Agrandir"],
+nav button[aria-label*="Réduire"],
+button[aria-label*="barre latérale"],
+button[aria-label*="sidebar"],
+button[aria-label*="Agrandir"],
+button[aria-label*="Réduire"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Amélioration de l'espacement du contenu principal */
+.fi-page {
+    padding: 1rem 0.5rem !important;
+}
+
+.fi-page-header {
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.3) !important;
+}
+
+/* Réduction de l'espacement des widgets */
+.fi-widget {
+    margin-bottom: 1rem !important;
+}
+
+/* Amélioration de l'espacement des sections */
+.fi-section {
+    margin-bottom: 1rem !important;
+}
+
+/* S'assurer que le body ne scroll pas avec la sidebar - UNIQUEMENT POUR FILAMENT */
+.fi-layout body,
+body.fi-layout,
+.fi-body {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+/* Permettre le scroll sur la page publique (hors Filament) */
+/* Règles spécifiques pour la page publique - priorité maximale */
+body:not(.fi-layout):not(.fi-body),
+html:not(.fi-layout) body {
+    overflow: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+}
+
+html {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+/* S'assurer que les sections peuvent scroller */
+section {
+    overflow: visible !important;
+}
+
+/* Layout Filament - structure flex pour séparer sidebar et contenu */
+.fi-layout {
+    display: flex !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* Responsive : ajustement pour petits écrans */
+@media (max-width: 1024px) {
+    .fi-sidebar {
+        position: relative !important;
+    }
+    
+    .fi-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .fi-sidebar-nav {
+        max-height: calc(100vh - 3rem) !important;
+    }
+}
+
+/* Rendre le bouton de formulaire sticky (toujours visible) */
+.fi-form-actions {
+    position: sticky !important;
+    bottom: 0 !important;
+    background: white !important;
+    padding: 1rem 0 !important;
+    margin-top: 1.5rem !important;
+    border-top: 1px solid rgba(229, 231, 235, 0.5) !important;
+    z-index: 10 !important;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* S'assurer que le contenu du formulaire a un padding en bas pour éviter que le bouton cache le contenu */
+.fi-form {
+    padding-bottom: 5rem !important;
+}
+
+/* Ajustement pour les pages de formulaire */
+.fi-page-content {
+    padding-bottom: 2rem !important;
+}
+
+/* Style amélioré pour les boutons d'action */
+.fi-form-actions button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-form-actions button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-1px) !important;
+}

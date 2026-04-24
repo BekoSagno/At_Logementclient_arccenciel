@@ -1,0 +1,84 @@
+/* Personnalisation de la Sidebar Filament */
+.fi-sidebar {
+    overflow-y: auto !important;
+    max-height: 100vh !important;
+    position: sticky !important;
+    top: 0 !important;
+}
+
+/* Amélioration du scroll de la sidebar */
+.fi-sidebar-nav {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: calc(100vh - 4rem) !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Style de la navigation */
+.fi-sidebar-nav-item {
+    margin-bottom: 0.25rem !important;
+}
+
+/* Amélioration de l'apparence des groupes de navigation */
+.fi-sidebar-group {
+    margin-bottom: 1rem !important;
+}
+
+/* Scrollbar personnalisée pour la sidebar */
+.fi-sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.3);
+    border-radius: 3px;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.5);
+}
+
+/* Amélioration de l'espacement des éléments */
+.fi-sidebar-nav-item-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-sidebar-nav-item-link:hover {
+    background-color: rgba(251, 191, 36, 0.1) !important;
+}
+
+/* Style pour les éléments actifs */
+.fi-sidebar-nav-item-link[aria-current="page"] {
+    background-color: rgba(251, 191, 36, 0.15) !important;
+    font-weight: 600 !important;
+}
+
+/* Amélioration de l'organisation des modules */
+.fi-sidebar-section {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Style pour le header de la sidebar */
+.fi-sidebar-header {
+    padding: 1.5rem 1rem !important;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5) !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Amélioration de l'espacement général */
+.fi-sidebar-content {
+    padding: 1rem 0.75rem !important;
+}
+
+/* Responsive : ajustement pour petits écrans */
+@media (max-width: 1024px) {
+    .fi-sidebar-nav {
+        max-height: calc(100vh - 3rem) !important;
+    }
+}

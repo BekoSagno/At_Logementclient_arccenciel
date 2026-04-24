@@ -1,0 +1,49 @@
+# FICHIER PHP.INI CORRIGÉ
+# ========================
+# 
+# Ce fichier contient les modifications nécessaires pour activer les extensions :
+# - gd (ligne ~931)
+# - intl (ligne ~934) 
+# - zip (ligne ~962)
+#
+# INSTRUCTIONS :
+# 1. Ouvrez votre fichier php.ini : C:\xampp\php\php.ini
+# 2. Cherchez les lignes suivantes et enlevez le point-virgule (;) au début
+# 3. Sauvegardez le fichier
+# 4. Redémarrez Apache/XAMPP
+#
+# ========================
+
+# LIGNE 931 - Extension GD (Images)
+# AVANT :
+;extension=gd
+
+# APRÈS (corrigé) :
+extension=gd
+
+# ========================
+
+# LIGNE 934 - Extension INTL (Internationalisation)
+# AVANT :
+;extension=intl
+
+# APRÈS (corrigé) :
+extension=intl
+
+# ========================
+
+# LIGNE 962 - Extension ZIP (Compression)
+# AVANT :
+;extension=zip
+
+# APRÈS (corrigé) :
+extension=zip
+
+# ========================
+# 
+# Après avoir fait ces modifications, vérifiez avec :
+# php -m | findstr "gd intl zip"
+#
+# Vous devriez voir les trois extensions listées.
+#
+# ========================
